@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel | Estacionamento</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css">
+</head>
+<body>
+<div class="app-shell">
+    <header class="topbar">
+        <a class="brand" th:href="@{/painel}" href="/painel">
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h8a5 5 0 0 1 0 10H6z"/><path d="M6 13v8"/></svg>
+            </span>
+            ParkFlow
+        </a>
+        <div class="topbar-actions">
+            <a class="btn btn-secondary" th:href="@{/}" href="/">Sair</a>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div class="page-title">
+                <span class="eyebrow">Painel principal</span>
+                <h1>Gerencie o estacionamento</h1>
+                <p>Escolha uma operação para registrar a movimentação dos veículos.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <a class="action-card" th:href="@{/veiculos/registrar-entrada}" href="/veiculos/registrar-entrada">
+                <div>
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h14"/><path d="m12 7 5 5-5 5"/><path d="M21 5v14"/></svg>
+                    </div>
+                    <h2>Registrar entrada</h2>
+                    <p>Cadastre a placa, o modelo, a cor e observações do veículo que acabou de entrar.</p>
+                </div>
+                <span class="card-link">Nova entrada <span>→</span></span>
+            </a>
+
+            <a class="action-card" th:href="@{/veiculos/saida}" href="/veiculos/saida">
+                <div>
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12H7"/><path d="m12 17-5-5 5-5"/><path d="M3 5v14"/></svg>
+                    </div>
+                    <h2>Registrar saída</h2>
+                    <p>Selecione um veículo registrado e confirme o momento em que ele deixa o estacionamento.</p>
+                </div>
+                <span class="card-link">Registrar saída <span>→</span></span>
+            </a>
+        </section>
+    </main>
+</div>
+</body>
+</html>

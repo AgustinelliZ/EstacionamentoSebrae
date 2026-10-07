@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro concluído | Estacionamento</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css">
+</head>
+<body>
+<main class="status-page">
+    <section class="status-card">
+        <div class="status-icon success">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
+        </div>
+        <h1>Cadastro realizado</h1>
+        <p>Sua conta foi criada com sucesso. Agora você já pode entrar no sistema.</p>
+        <a class="btn btn-primary" th:href="@{/}" href="/">Ir para o login</a>
+    </section>
+</main>
+</body>
+</html>

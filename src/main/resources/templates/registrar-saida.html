@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar saída | Estacionamento</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css">
+</head>
+<body>
+<div class="app-shell">
+    <header class="topbar">
+        <a class="brand" th:href="@{/painel}" href="/painel">
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h8a5 5 0 0 1 0 10H6z"/><path d="M6 13v8"/></svg>
+            </span>
+            ParkFlow
+        </a>
+        <div class="topbar-actions">
+            <a class="btn btn-secondary" th:href="@{/painel}" href="/painel">Voltar ao painel</a>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="panel-card wide">
+            <div class="panel-header">
+                <div>
+                    <span class="eyebrow">Movimentação</span>
+                    <h1>Registrar saída</h1>
+                    <p>Selecione a placa do veículo e confirme a saída.</p>
+                </div>
+            </div>
+
+            <div class="notice notice-success" th:if="${param.sucesso}">
+                Saída registrada com sucesso.
+            </div>
+
+            <div class="field" th:if="${!#lists.isEmpty(veiculos)}">
+                <label for="placa">Veículo</label>
+                <select id="placa" onchange="selecionarVeiculo(this.value)">
+                    <option value="">Selecione uma placa</option>
+                    <option th:each="v : ${veiculos}"
+                            th:if="${v.estacionado == null || v.estacionado}"
+                            th:value="${v.id}"
+                            th:text="${v.placa + ' — ' + v.modelo}"
+                            th:selected="${veiculo != null && veiculo.id == v.id}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="empty-state" th:if="${#lists.isEmpty(veiculos)}">
+                Nenhum veículo foi registrado ainda.
+            </div>
+
+            <div th:if="${veiculo != null}">
+                <div class="vehicle-detail">
+                    <div class="detail-item">
+                        <span>Placa</span>
+                        <strong th:text="${veiculo.placa}">ABC1D23</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Modelo</span>
+                        <strong th:text="${veiculo.modelo}">Modelo</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Cor</span>
+                        <strong th:text="${veiculo.cor}">Cor</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span>Entrada</span>
+                        <strong th:text="${veiculo.horaEntrada}">Data</strong>
+                    </div>
+                </div>
+
+                <form class="form" method="post" th:action="@{/veiculos/saida/{id}(id=${veiculo.id})}">
+                    <button class="btn btn-danger" type="submit">Confirmar saída do veículo</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    function selecionarVeiculo(id) {
+        window.location.href = id ? "/veiculos/saida/" + id : "/veiculos/saida";
+    }
+</script>
+</body>
+</html>

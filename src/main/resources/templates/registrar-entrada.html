@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar entrada | Estacionamento</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css">
+</head>
+<body>
+<div class="app-shell">
+    <header class="topbar">
+        <a class="brand" th:href="@{/painel}" href="/painel">
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h8a5 5 0 0 1 0 10H6z"/><path d="M6 13v8"/></svg>
+            </span>
+            ParkFlow
+        </a>
+        <div class="topbar-actions">
+            <a class="btn btn-secondary" th:href="@{/painel}" href="/painel">Voltar ao painel</a>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="panel-card wide">
+            <div class="panel-header">
+                <div>
+                    <span class="eyebrow">Movimentação</span>
+                    <h1>Registrar entrada</h1>
+                    <p>Preencha os dados do veículo que está entrando no estacionamento.</p>
+                </div>
+            </div>
+
+            <form class="form" method="post" th:action="@{/veiculos/cadastrar}" action="/veiculos/cadastrar">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="placa">Placa</label>
+                        <input type="text" id="placa" name="placa" placeholder="ABC1D23" maxlength="8" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" id="modelo" name="modelo" placeholder="Ex.: Honda Civic" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="cor">Cor</label>
+                        <input type="text" id="cor" name="cor" placeholder="Ex.: Preto" required>
+                    </div>
+
+                    <div class="field full">
+                        <label for="observacao">Observações</label>
+                        <textarea id="observacao" name="observacao" placeholder="Informações adicionais sobre o veículo, se necessário."></textarea>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Salvar entrada</button>
+            </form>
+        </section>
+    </main>
+</div>
+</body>
+</html>

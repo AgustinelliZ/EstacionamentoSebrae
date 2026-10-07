@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falha no login | Estacionamento</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="/css/app.css">
+</head>
+<body>
+<main class="status-page">
+    <section class="status-card">
+        <div class="status-icon error">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 8v5"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <h1>Não foi possível entrar</h1>
+        <p>O e-mail ou a senha informados estão incorretos. Confira os dados e tente novamente.</p>
+        <a class="btn btn-primary" th:href="@{/}" href="/">Tentar novamente</a>
+    </section>
+</main>
+</body>
+</html>
